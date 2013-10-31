@@ -5,19 +5,18 @@
  */
 package pss;
 
-import java.util.Date;
 import java.util.Random;
 
 /**
  *
  * @author marcus
  */
-public class PersonTiming {
+public class Person {
     int type = 0;
     int timing;
     int destinationFloor;
 
-    public PersonTiming(int type) {
+    public Person(int type) {
         Random r = new Random();
         this.type = type;
         this.timing = r.nextInt(2359);
@@ -60,7 +59,7 @@ public class PersonTiming {
         this.timing = timing;
     }
 
-    public boolean sort(PersonTiming pt2){
+    public boolean sort(Person pt2){
         if(timing<pt2.timing){
             return true;
         }else{
