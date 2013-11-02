@@ -7,14 +7,20 @@ import java.util.ArrayList;
  * @author marcus
  */
 public class Lift {
+    int number;
+    int floor;
     String direction; //up or down or not moving only
     ArrayList<Person> persons; //maximum of 10
+    ArrayList<Person> personsToPickUp;
     
     //add person method, check for max
     //
-    public Lift(String direction, ArrayList<Person> Persons) {
-        this.direction = direction;
-        this.persons = Persons;
+    public Lift(int number) {
+        this.number = number;
+        this.floor=1;
+        this.direction = "notMoving";
+        this.persons = new ArrayList<Person>();
+        this.personsToPickUp = new ArrayList<Person>();
     }
 
     public String getDirection() {
@@ -28,7 +34,7 @@ public class Lift {
         this.direction = "down";
     }
     public void setDirectionNotMoving() {
-        this.direction = "NotMoving";
+        this.direction = "notMoving";
     }
 
     public ArrayList<Person> getPersons() {
@@ -39,8 +45,12 @@ public class Lift {
         this.persons = Persons;
     }
     
-    public void addPerson(Person p1){
-        persons.add(p1);
+    public boolean addPerson(Person p1){
+        if(persons.size()>=9){
+            return false;
+        }
+        personsToPickUp.add(p1);
+        return true;
     }
     
     public void removePerson(int floor){
@@ -53,4 +63,22 @@ public class Lift {
             }
         }
     }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+    
+    
 }

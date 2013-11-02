@@ -36,38 +36,34 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="Lift1Bar1" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton14" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton7" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton8" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton9" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton10" alignment="0" pref="100" max="32767" attributes="0"/>
-                          <Component id="jButton11" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton12" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton6" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton13" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton4" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton5" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                       <Component id="Lift1" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="jButton14" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jButton7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButton8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButton9" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButton10" alignment="0" pref="100" max="32767" attributes="0"/>
+                              <Component id="jButton11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButton12" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton6" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton13" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton4" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton5" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -85,20 +81,23 @@
                                   <Component id="VVIPQueue" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="NextStep" linkSize="1" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Component id="ProcessQueues" linkSize="1" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Component id="ClearButton" linkSize="1" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="RandomButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Cleaner" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Maintenance" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Visitor" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="BlackOpsEmployee" linkSize="1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Employee" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="Go" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="NextStep" linkSize="1" alignment="0" pref="165" max="32767" attributes="0"/>
+                                      <Component id="ProcessQueues" linkSize="1" alignment="0" pref="165" max="32767" attributes="0"/>
+                                      <Component id="ClearButton" linkSize="1" alignment="0" pref="165" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="RandomButton" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Cleaner" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Maintenance" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Visitor" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="BlackOpsEmployee" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Employee" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="Management" linkSize="1" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="Management" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -302,7 +301,10 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jButton10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Go" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jButton12" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -734,6 +736,11 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Go">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Go"/>
       </Properties>
     </Component>
   </SubComponents>

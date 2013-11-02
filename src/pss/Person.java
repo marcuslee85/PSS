@@ -7,15 +7,18 @@ import java.util.Random;
  * @author marcus
  */
 public class Person {
+    int userid;
     int type = 0;
-    int timing;
+    int timing; //6 digits hhmmss
+    int arrivalFloor;
     int destinationFloor;
 
     public Person(int type) {
         Random r = new Random();
         this.type = type;
         this.timing = r.nextInt(2359);
-        this.destinationFloor = r.nextInt(11)+1;
+        this.destinationFloor = r.nextInt(11)+1; //@todo include carparks
+        this.arrivalFloor = r.nextInt(11)+1; //@todo include carparks
     }
 
     public int getType() {
@@ -68,6 +71,14 @@ public class Person {
 
     public void setDestinationFloor(int destinationFloor) {
         this.destinationFloor = destinationFloor;
+    }
+
+    public int getArrivalFloor() {
+        return arrivalFloor;
+    }
+
+    public void setArrivalFloor(int arrivalFloor) {
+        this.arrivalFloor = arrivalFloor;
     }
     
     
