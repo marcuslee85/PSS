@@ -36,13 +36,13 @@
                                   <Component id="DoorOpenButton" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="Lift1Bar1" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="Lift1Bar" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                               <Component id="Lift1" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="Lift1Persons" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -50,17 +50,17 @@
                           <Group type="102" attributes="0">
                               <Component id="Lift2" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Lift2Persons" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="Lift1Bar2" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="Lift2Bar" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Lift1Bar" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="Lift3Bar" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="Lift3" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="Lift3Persons" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -136,17 +136,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Lift1Bar4" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="Lift4Bar" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="Lift4" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="Lift4Persons" min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="Lift1Bar3" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="Lift5Bar" linkSize="4" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="WeekendToggle" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -154,7 +154,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="Lift5" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="Lift5Persons" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -178,11 +178,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="IntercomButton" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Lift1Bar2" linkSize="5" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
-                  <Component id="Lift1Bar" linkSize="5" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
-                  <Component id="Lift1Bar4" linkSize="5" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
-                  <Component id="Lift1Bar3" linkSize="5" min="-2" pref="236" max="-2" attributes="0"/>
-                  <Component id="Lift1Bar1" linkSize="5" min="-2" pref="236" max="-2" attributes="0"/>
+                  <Component id="Lift2Bar" linkSize="5" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
+                  <Component id="Lift3Bar" linkSize="5" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
+                  <Component id="Lift4Bar" linkSize="5" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
+                  <Component id="Lift5Bar" linkSize="5" min="-2" pref="236" max="-2" attributes="0"/>
+                  <Component id="Lift1Bar" linkSize="5" min="-2" pref="236" max="-2" attributes="0"/>
                   <Component id="WeekendToggle" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -192,14 +192,14 @@
                       <Component id="Lift2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Lift3" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="Lift4" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Lift1Persons" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Lift2Persons" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Lift3Persons" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Lift4Persons" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="Lift5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Lift5Persons" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -343,7 +343,7 @@
         <Property name="text" type="java.lang.String" value="Intercom"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="Lift1Bar">
+    <Component class="javax.swing.JProgressBar" name="Lift3Bar">
       <Properties>
         <Property name="maximum" type="int" value="12"/>
         <Property name="minimum" type="int" value="-2"/>
@@ -482,7 +482,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="Lift1Bar1">
+    <Component class="javax.swing.JProgressBar" name="Lift1Bar">
       <Properties>
         <Property name="maximum" type="int" value="12"/>
         <Property name="minimum" type="int" value="-2"/>
@@ -492,7 +492,7 @@
         <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="Lift1Bar2">
+    <Component class="javax.swing.JProgressBar" name="Lift2Bar">
       <Properties>
         <Property name="maximum" type="int" value="12"/>
         <Property name="minimum" type="int" value="-2"/>
@@ -502,7 +502,7 @@
         <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="Lift1Bar3">
+    <Component class="javax.swing.JProgressBar" name="Lift5Bar">
       <Properties>
         <Property name="maximum" type="int" value="12"/>
         <Property name="minimum" type="int" value="-2"/>
@@ -512,7 +512,7 @@
         <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="Lift1Bar4">
+    <Component class="javax.swing.JProgressBar" name="Lift4Bar">
       <Properties>
         <Property name="maximum" type="int" value="12"/>
         <Property name="minimum" type="int" value="-2"/>
@@ -715,27 +715,27 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="Lift1Persons">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="Lift2Persons">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="Lift3Persons">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="Lift4Persons">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="Lift5Persons">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>

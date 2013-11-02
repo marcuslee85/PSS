@@ -12,15 +12,16 @@ import java.util.Random;
  * @author marcus
  */
 public class LiftInterface extends javax.swing.JFrame {
-    
+
     ArrayList<Person> queue;
     LiftController lc1;
-    
+
     /**
      * Creates new form LiftInterface
      */
     public LiftInterface() {
         this.queue = new ArrayList<Person>();
+        this.lc1 = new LiftController();
         initComponents();
     }
 
@@ -37,7 +38,7 @@ public class LiftInterface extends javax.swing.JFrame {
         DoorCloseButton = new javax.swing.JButton();
         EmergencyAlarmButton = new javax.swing.JButton();
         IntercomButton = new javax.swing.JButton();
-        Lift1Bar = new javax.swing.JProgressBar();
+        Lift3Bar = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -54,10 +55,10 @@ public class LiftInterface extends javax.swing.JFrame {
         BlackOps = new javax.swing.JButton();
         Management = new javax.swing.JButton();
         Employee = new javax.swing.JButton();
-        Lift1Bar1 = new javax.swing.JProgressBar();
-        Lift1Bar2 = new javax.swing.JProgressBar();
-        Lift1Bar3 = new javax.swing.JProgressBar();
-        Lift1Bar4 = new javax.swing.JProgressBar();
+        Lift1Bar = new javax.swing.JProgressBar();
+        Lift2Bar = new javax.swing.JProgressBar();
+        Lift5Bar = new javax.swing.JProgressBar();
+        Lift4Bar = new javax.swing.JProgressBar();
         Lift1 = new javax.swing.JLabel();
         Lift2 = new javax.swing.JLabel();
         Lift3 = new javax.swing.JLabel();
@@ -86,11 +87,11 @@ public class LiftInterface extends javax.swing.JFrame {
         WeekendToggle = new javax.swing.JToggleButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        Lift1Persons = new javax.swing.JLabel();
+        Lift2Persons = new javax.swing.JLabel();
+        Lift3Persons = new javax.swing.JLabel();
+        Lift4Persons = new javax.swing.JLabel();
+        Lift5Persons = new javax.swing.JLabel();
         Go = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,13 +109,13 @@ public class LiftInterface extends javax.swing.JFrame {
 
         IntercomButton.setText("Intercom");
 
-        Lift1Bar.setMaximum(12);
-        Lift1Bar.setMinimum(-2);
-        Lift1Bar.setOrientation(1);
-        Lift1Bar.setToolTipText("");
-        Lift1Bar.setValue(1);
-        Lift1Bar.setString("1");
-        Lift1Bar.setStringPainted(true);
+        Lift3Bar.setMaximum(12);
+        Lift3Bar.setMinimum(-2);
+        Lift3Bar.setOrientation(1);
+        Lift3Bar.setToolTipText("");
+        Lift3Bar.setValue(1);
+        Lift3Bar.setString("1");
+        Lift3Bar.setStringPainted(true);
 
         jButton1.setText("Floor B1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -228,33 +229,33 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        Lift1Bar1.setMaximum(12);
-        Lift1Bar1.setMinimum(-2);
-        Lift1Bar1.setOrientation(1);
-        Lift1Bar1.setValue(1);
-        Lift1Bar1.setString("1");
-        Lift1Bar1.setStringPainted(true);
+        Lift1Bar.setMaximum(12);
+        Lift1Bar.setMinimum(-2);
+        Lift1Bar.setOrientation(1);
+        Lift1Bar.setValue(1);
+        Lift1Bar.setString("1");
+        Lift1Bar.setStringPainted(true);
 
-        Lift1Bar2.setMaximum(12);
-        Lift1Bar2.setMinimum(-2);
-        Lift1Bar2.setOrientation(1);
-        Lift1Bar2.setValue(1);
-        Lift1Bar2.setString("1");
-        Lift1Bar2.setStringPainted(true);
+        Lift2Bar.setMaximum(12);
+        Lift2Bar.setMinimum(-2);
+        Lift2Bar.setOrientation(1);
+        Lift2Bar.setValue(1);
+        Lift2Bar.setString("1");
+        Lift2Bar.setStringPainted(true);
 
-        Lift1Bar3.setMaximum(12);
-        Lift1Bar3.setMinimum(-2);
-        Lift1Bar3.setOrientation(1);
-        Lift1Bar3.setValue(1);
-        Lift1Bar3.setString("1");
-        Lift1Bar3.setStringPainted(true);
+        Lift5Bar.setMaximum(12);
+        Lift5Bar.setMinimum(-2);
+        Lift5Bar.setOrientation(1);
+        Lift5Bar.setValue(1);
+        Lift5Bar.setString("1");
+        Lift5Bar.setStringPainted(true);
 
-        Lift1Bar4.setMaximum(12);
-        Lift1Bar4.setMinimum(-2);
-        Lift1Bar4.setOrientation(1);
-        Lift1Bar4.setValue(1);
-        Lift1Bar4.setString("1");
-        Lift1Bar4.setStringPainted(true);
+        Lift4Bar.setMaximum(12);
+        Lift4Bar.setMinimum(-2);
+        Lift4Bar.setOrientation(1);
+        Lift4Bar.setValue(1);
+        Lift4Bar.setString("1");
+        Lift4Bar.setStringPainted(true);
 
         Lift1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Lift1.setText("Lift 1");
@@ -380,15 +381,15 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("0");
+        Lift1Persons.setText("0");
 
-        jLabel3.setText("0");
+        Lift2Persons.setText("0");
 
-        jLabel4.setText("0");
+        Lift3Persons.setText("0");
 
-        jLabel5.setText("0");
+        Lift4Persons.setText("0");
 
-        jLabel6.setText("0");
+        Lift5Persons.setText("0");
 
         Go.setText("Go");
 
@@ -408,26 +409,26 @@ public class LiftInterface extends javax.swing.JFrame {
                                     .add(DoorCloseButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 153, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(DoorOpenButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 153, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(Lift1Bar1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(Lift1Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(layout.createSequentialGroup()
                                 .add(156, 156, 156)
                                 .add(Lift1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(jLabel2)))
+                                .add(Lift1Persons)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(layout.createSequentialGroup()
                                 .add(Lift2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jLabel3))
-                            .add(Lift1Bar2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(Lift2Persons))
+                            .add(Lift2Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(Lift1Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(Lift3Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(layout.createSequentialGroup()
                                 .add(Lift3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jLabel4))))
+                                .add(Lift3Persons))))
                     .add(layout.createSequentialGroup()
                         .add(14, 14, 14)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -486,29 +487,29 @@ public class LiftInterface extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(Lift1Bar4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(Lift4Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(layout.createSequentialGroup()
                                 .add(Lift4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(Lift4Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(layout.createSequentialGroup()
-                                .add(Lift1Bar3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(Lift5Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(WeekendToggle)
                                 .add(0, 0, Short.MAX_VALUE))
                             .add(layout.createSequentialGroup()
                                 .add(Lift5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jLabel6)
+                                .add(Lift5Persons)
                                 .add(133, 133, 133))))
                     .add(jScrollPane1)))
         );
 
         layout.linkSize(new java.awt.Component[] {BlackOps, BlackOpsEmployee, ClearButton, Employee, Management, NextStep, ProcessQueues, VVIP}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
-        layout.linkSize(new java.awt.Component[] {Lift1Bar, Lift1Bar1, Lift1Bar2, Lift1Bar3, Lift1Bar4}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+        layout.linkSize(new java.awt.Component[] {Lift1Bar, Lift2Bar, Lift3Bar, Lift4Bar, Lift5Bar}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -523,11 +524,11 @@ public class LiftInterface extends javax.swing.JFrame {
                         .add(EmergencyAlarmButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(IntercomButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(Lift1Bar2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(Lift2Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(Lift3Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(Lift4Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(Lift5Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(Lift1Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(Lift1Bar4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(Lift1Bar3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(Lift1Bar1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 236, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(WeekendToggle))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -536,13 +537,13 @@ public class LiftInterface extends javax.swing.JFrame {
                         .add(Lift2)
                         .add(Lift3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(Lift4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(jLabel2)
-                        .add(jLabel3)
-                        .add(jLabel4)
-                        .add(jLabel5))
+                        .add(Lift1Persons)
+                        .add(Lift2Persons)
+                        .add(Lift3Persons)
+                        .add(Lift4Persons))
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(Lift5)
-                        .add(jLabel6)))
+                        .add(Lift5Persons)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jScrollPane1)
@@ -637,7 +638,7 @@ public class LiftInterface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        layout.linkSize(new java.awt.Component[] {Lift1Bar, Lift1Bar1, Lift1Bar2, Lift1Bar3, Lift1Bar4}, org.jdesktop.layout.GroupLayout.VERTICAL);
+        layout.linkSize(new java.awt.Component[] {Lift1Bar, Lift2Bar, Lift3Bar, Lift4Bar, Lift5Bar}, org.jdesktop.layout.GroupLayout.VERTICAL);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -647,63 +648,63 @@ public class LiftInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_DoorOpenButtonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Lift1Bar.setValue(4);
-        Lift1Bar.setString("4");
+        Lift3Bar.setValue(4);
+        Lift3Bar.setString("4");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Lift1Bar.setValue(5);
-        Lift1Bar.setString("5");
+        Lift3Bar.setValue(5);
+        Lift3Bar.setString("5");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Lift1Bar.setValue(6);
-        Lift1Bar.setString("6");
+        Lift3Bar.setValue(6);
+        Lift3Bar.setString("6");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Lift1Bar.setValue(7);
-        Lift1Bar.setString("7");
+        Lift3Bar.setValue(7);
+        Lift3Bar.setString("7");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        Lift1Bar.setValue(8);
-        Lift1Bar.setString("8");
+        Lift3Bar.setValue(8);
+        Lift3Bar.setString("8");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Lift1Bar.setValue(9);
-        Lift1Bar.setString("9");
+        Lift3Bar.setValue(9);
+        Lift3Bar.setString("9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        Lift1Bar.setValue(10);
-        Lift1Bar.setString("10");
+        Lift3Bar.setValue(10);
+        Lift3Bar.setString("10");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Lift1Bar.setValue(-1);
-        Lift1Bar.setString("B1");
+        Lift3Bar.setValue(-1);
+        Lift3Bar.setString("B1");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Lift1Bar.setValue(2);
-        Lift1Bar.setString("2");
+        Lift3Bar.setValue(2);
+        Lift3Bar.setString("2");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Lift1Bar.setValue(3);
-        Lift1Bar.setString("3");
+        Lift3Bar.setValue(3);
+        Lift3Bar.setString("3");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        Lift1Bar.setValue(11);
-        Lift1Bar.setString("11");
+        Lift3Bar.setValue(11);
+        Lift3Bar.setString("11");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Lift1Bar.setValue(12);
-        Lift1Bar.setString("12");
+        Lift3Bar.setValue(12);
+        Lift3Bar.setString("12");
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void VVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VVIPActionPerformed
@@ -730,13 +731,13 @@ public class LiftInterface extends javax.swing.JFrame {
         //Algorithm starts here
         if (BlackOpsQueue.getValue() > 0) {
             ProcessingStatus.setText("Black Ops\r\n");
-        } 
+        }
         if (VVIPQueue.getValue() > 0) {
             ProcessingStatus.setText(ProcessingStatus.getText() + "VVIP\r\n");
-        } 
+        }
         if (ManagementQueue.getValue() > 0) {
             ProcessingStatus.setText(ProcessingStatus.getText() + "Management\r\n");
-        } 
+        }
         if (BlackOpsEmployeeQueue.getValue() > 0) {
             ProcessingStatus.setText(ProcessingStatus.getText() + "Black Ops Employee\r\n");
         }
@@ -763,7 +764,7 @@ public class LiftInterface extends javax.swing.JFrame {
         VisitorQueue.setValue(0);
         MaintenanceQueue.setValue(0);
         CleanerQueue.setValue(0);
-        
+
         BlackOpsQueue.setString("0");
         VVIPQueue.setString("0");
         ManagementQueue.setString("0");
@@ -772,7 +773,7 @@ public class LiftInterface extends javax.swing.JFrame {
         VisitorQueue.setString("0");
         MaintenanceQueue.setString("0");
         CleanerQueue.setString("0");
-        
+
         ProcessingStatus.setText("");
     }//GEN-LAST:event_ClearButtonActionPerformed
 
@@ -788,8 +789,8 @@ public class LiftInterface extends javax.swing.JFrame {
         // visitors randomness?
         //10 passengers for each lift maximum
         Random r = new Random();
-        
-        if(WeekendToggle.isSelected()){
+
+        if (WeekendToggle.isSelected()) {
             BlackOpsQueue.setValue(r.nextInt(10));
             VVIPQueue.setValue(r.nextInt(1));
             ManagementQueue.setValue(r.nextInt(5));
@@ -797,8 +798,8 @@ public class LiftInterface extends javax.swing.JFrame {
             EmployeeQueue.setValue(r.nextInt(20));
             VisitorQueue.setValue(r.nextInt(1));
             MaintenanceQueue.setValue(r.nextInt(100));
-            CleanerQueue.setValue(r.nextInt(50)+50);
-        }else{
+            CleanerQueue.setValue(r.nextInt(50) + 50);
+        } else {
             BlackOpsQueue.setValue(r.nextInt(100));
             VVIPQueue.setValue(r.nextInt(100));
             ManagementQueue.setValue(r.nextInt(100));
@@ -808,7 +809,7 @@ public class LiftInterface extends javax.swing.JFrame {
             MaintenanceQueue.setValue(r.nextInt(100));
             CleanerQueue.setValue(r.nextInt(100));
         }
-        
+
         BlackOpsQueue.setString(String.valueOf(BlackOpsQueue.getValue()));
         VVIPQueue.setString(String.valueOf(VVIPQueue.getValue()));
         ManagementQueue.setString(String.valueOf(ManagementQueue.getValue()));
@@ -817,7 +818,7 @@ public class LiftInterface extends javax.swing.JFrame {
         VisitorQueue.setString(String.valueOf(VisitorQueue.getValue()));
         MaintenanceQueue.setString(String.valueOf(MaintenanceQueue.getValue()));
         CleanerQueue.setString(String.valueOf(CleanerQueue.getValue()));
-        
+
         for (int i = 0; i < BlackOpsQueue.getValue(); i++) {
             queue.add(new Person(1));
         }
@@ -843,16 +844,15 @@ public class LiftInterface extends javax.swing.JFrame {
             queue.add(new Person(8));
         }
         ProcessingStatus.setText("");
-       
-        for (int i = 0; i < 235959; i++) {
-            for (Person personTiming : queue) {
-                if(personTiming.getTiming()==i){
-                    ProcessingStatus.setText(ProcessingStatus.getText()+personTiming.getTypeName()+" "+personTiming.getTiming()+" \r\n");
-                }
+
+        int i = 0;
+        for (Person person : queue) {
+            if (person.getTiming() == i) {
+                ProcessingStatus.setText(ProcessingStatus.getText() + person.getTypeName() + " " + person.getTiming() + " \r\n");
             }
+            i++;
         }
-        
-        ProcessingStatus.setText(ProcessingStatus.getText()+"Total in queue: "+queue.size()+" \r\n");
+        ProcessingStatus.setText(ProcessingStatus.getText() + "Total in queue: " + queue.size() + " \r\n");
 
     }//GEN-LAST:event_RandomButtonActionPerformed
 
@@ -872,18 +872,32 @@ public class LiftInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_CleanerActionPerformed
 
     private void NextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextStepActionPerformed
+        for (Person person : queue) {
+                lc1.pickUp(person);
+        }
         
-        
+        Lift1Bar.setValue(lc1.liftGetNextStep(1));
+        Lift1Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(1)));
+        Lift2Bar.setValue(lc1.liftGetNextStep(2));
+        Lift2Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(2)));
+        Lift3Bar.setValue(lc1.liftGetNextStep(3));
+        Lift3Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(3)));
+        Lift4Bar.setValue(lc1.liftGetNextStep(4));
+        Lift4Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(4)));
+        Lift5Bar.setValue(lc1.liftGetNextStep(5));
+        Lift5Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(5)));
+
+
     }//GEN-LAST:event_NextStepActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        Lift1Bar.setValue(1);
-        Lift1Bar.setString("1");
+        Lift3Bar.setValue(1);
+        Lift3Bar.setString("1");
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        Lift1Bar.setValue(-2);
-        Lift1Bar.setString("B2");
+        Lift3Bar.setValue(-2);
+        Lift3Bar.setString("B2");
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
@@ -937,14 +951,19 @@ public class LiftInterface extends javax.swing.JFrame {
     private javax.swing.JButton IntercomButton;
     private javax.swing.JLabel Lift1;
     private javax.swing.JProgressBar Lift1Bar;
-    private javax.swing.JProgressBar Lift1Bar1;
-    private javax.swing.JProgressBar Lift1Bar2;
-    private javax.swing.JProgressBar Lift1Bar3;
-    private javax.swing.JProgressBar Lift1Bar4;
+    private javax.swing.JLabel Lift1Persons;
     private javax.swing.JLabel Lift2;
+    private javax.swing.JProgressBar Lift2Bar;
+    private javax.swing.JLabel Lift2Persons;
     private javax.swing.JLabel Lift3;
+    private javax.swing.JProgressBar Lift3Bar;
+    private javax.swing.JLabel Lift3Persons;
     private javax.swing.JLabel Lift4;
+    private javax.swing.JProgressBar Lift4Bar;
+    private javax.swing.JLabel Lift4Persons;
     private javax.swing.JLabel Lift5;
+    private javax.swing.JProgressBar Lift5Bar;
+    private javax.swing.JLabel Lift5Persons;
     private javax.swing.JButton Maintenance;
     private javax.swing.JProgressBar MaintenanceQueue;
     private javax.swing.JButton Management;
@@ -974,11 +993,6 @@ public class LiftInterface extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

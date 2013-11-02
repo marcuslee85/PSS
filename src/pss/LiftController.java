@@ -136,4 +136,34 @@ class LiftController {
         }
         return false; //all lifts full or in wrong direction
     }
+    
+    public int liftGetNextStep(int i1){
+        if(i1==1){
+            return lift1.nextStep();
+        }if(i1==2){
+            return lift2.nextStep();
+        }if(i1==3){
+            return lift3.nextStep();
+        }if(i1==4){
+            return lift4.nextStep();
+        }if(i1==5){
+            return lift5.nextStep();
+        }
+        return 0; //fatal error
+    }
+
+    public int liftGetNumberOfPersons(int i1) {
+        if(i1==1){
+            return lift1.persons.size();
+        }if(i1==2){
+            return lift2.persons.size();
+        }if(i1==3){
+            return lift3.persons.size();
+        }if(i1==4){
+            return lift4.persons.size();
+        }if(i1==5){
+            return lift5.persons.size();
+        }
+        return 0; //fatal error
+    }
 }

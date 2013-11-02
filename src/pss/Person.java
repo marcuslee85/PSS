@@ -7,6 +7,7 @@ import java.util.Random;
  * @author marcus
  */
 public class Person {
+
     int userid;
     int type = 0;
     int timing; //6 digits hhmmss
@@ -16,39 +17,53 @@ public class Person {
     public Person(int type) {
         Random r = new Random();
         this.type = type;
-        this.timing = r.nextInt(23)*10000 + r.nextInt(59)*100 + r.nextInt(59); //hhmmss
-        this.destinationFloor = r.nextInt(15)-2; //@todo include carparks
-        if(this.destinationFloor==0){
-            this.destinationFloor=1;
+        this.timing = r.nextInt(23) * 10000 + r.nextInt(59) * 100 + r.nextInt(59); //hhmmss
+        this.destinationFloor = r.nextInt(15) - 2; //@todo include carparks
+        if (this.destinationFloor == 0) {
+            this.destinationFloor = 1;
         }
-        this.arrivalFloor = r.nextInt(15)-2; //@todo include carparks
-        if(this.arrivalFloor==0){
-            this.arrivalFloor=1;
+        this.arrivalFloor = r.nextInt(15) - 2; //@todo include carparks
+        if (this.arrivalFloor == 0) {
+            this.arrivalFloor = 1;
         }
+        while (this.destinationFloor == this.arrivalFloor) {
+            this.destinationFloor = r.nextInt(15) - 2;
+            if (this.destinationFloor == 0) {
+                this.destinationFloor = 1;
+            }
+        }
+    }
+    
+    public Person(int userid, int type, int timing, int arrivalFloor, int destinationFloor) {
+        this.userid = userid;
+        this.type = type;
+        this.timing = timing;
+        this.arrivalFloor = arrivalFloor;
+        this.destinationFloor = destinationFloor;
     }
 
     public int getType() {
         return type;
     }
-    
-    public String getTypeName(){
-        if(type==1){
+
+    public String getTypeName() {
+        if (type == 1) {
             return "Black Ops";
-        }else if(type==2){
+        } else if (type == 2) {
             return "VVIP";
-        }else if(type==3){
+        } else if (type == 3) {
             return "Management";
-        }else if(type==4){
+        } else if (type == 4) {
             return "Black Ops Employee";
-        }else if(type==5){
+        } else if (type == 5) {
             return "Employee";
-        }else if(type==6){
+        } else if (type == 6) {
             return "Visitor";
-        }else if(type==7){
+        } else if (type == 7) {
             return "Maintenance";
-        }else if(type==8){
+        } else if (type == 8) {
             return "Cleaner";
-        }else{
+        } else {
             return null; //somewhere u F up
         }
     }
@@ -65,10 +80,10 @@ public class Person {
         this.timing = timing;
     }
 
-    public boolean sort(Person pt2){
-        if(timing<pt2.timing){
+    public boolean sort(Person pt2) {
+        if (timing < pt2.timing) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -88,6 +103,5 @@ public class Person {
     public void setArrivalFloor(int arrivalFloor) {
         this.arrivalFloor = arrivalFloor;
     }
-    
-    
+
 }
