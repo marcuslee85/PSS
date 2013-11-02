@@ -53,7 +53,16 @@ public class Lift {
         return true;
     }
     
-    public void removePerson(int floor){
+    private void pickUpPerson() {
+        for (int i = 0; i < personsToPickUp.size(); i++) {
+            if(personsToPickUp.get(i).getArrivalFloor()==floor){
+                persons.add(personsToPickUp.get(i));
+                personsToPickUp.remove(i);
+            }
+        }
+    }
+    
+    public void removePerson(){
         for (int i = 0; i < persons.size(); i++) {
             while(persons.get(i).getDestinationFloor()==floor){
                 persons.remove(i);
@@ -80,5 +89,36 @@ public class Lift {
         this.floor = floor;
     }
     
-    
+    public int nextStep(){
+        //move one floor depending on up or down, or notmoving den move to the queue
+        //change to not moving when queue and persons empty. DONE!
+        //drop off people and den pick up people after movement
+        if(direction.equalsIgnoreCase("up") || direction.equalsIgnoreCase("down")){
+            if(persons.isEmpty() && personsToPickUp.isEmpty()){
+                setDirectionNotMoving();
+                return floor;
+            }if(!persons.isEmpty()){
+                if(direction.equalsIgnoreCase("up")){
+                    floor++;
+                    if(floor==0){
+                        floor=1;
+                    }
+                    removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
+                    return floor;
+                }else if (direction.equalsIgnoreCase("down")){
+                    floor--;
+                    if(floor==0){
+                        floor=-1;
+                    }
+                    removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
+                    return floor;
+                }
+            }
+        }
+        
+        
+        return floor;
+    }
 }
