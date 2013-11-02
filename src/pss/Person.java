@@ -26,6 +26,14 @@ public class Person {
             this.arrivalFloor=1;
         }
     }
+    
+    public Person(int userid, int type, int timing, int arrivalFloor, int destinationFloor) {
+        this.userid = userid;
+        this.type = type;
+        this.timing = timing;
+        this.arrivalFloor = arrivalFloor;
+        this.destinationFloor = destinationFloor;
+    }
 
     public int getType() {
         return type;
