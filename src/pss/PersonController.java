@@ -349,6 +349,7 @@ public class PersonController {
             int timing = p1.timing;
             int arrivalFloor = p1.arrivalFloor;
             int destinationFloor = p1.destinationFloor;
+            int scenario = p1.scenario;
             // Check for existing Person in DB
             String SQL = "SELECT PID, P_TYPE FROM person WHERE PID = "
                     + userid + " AND P_TYPE = "
@@ -363,8 +364,10 @@ public class PersonController {
             } else {
                 // If person exists in DB - add activity and return true
                 
-                SQL = "INSERT INTO activity (arrive_datetime, start_floor, end_floor, PID) VALUES ("
-                        + timing + "," + arrivalFloor + "," + destinationFloor + "," + userid + ")";
+                SQL = "INSERT INTO activity (arrive_datetime, start_floor, end_floor, PID, scenario) "
+                        + "VALUES (" + timing + "," + arrivalFloor
+                        + "," + destinationFloor + "," + userid
+                        + scenario + ")";
                 stmt = con.createStatement();
                 stmt.executeUpdate(SQL);
                 return true;
@@ -404,9 +407,9 @@ public class PersonController {
     }
 
     /**
-     * Queries DB for activities to populate in lift queue.
+     * Queries DB for activities to populate in lift queue based on scenario.
      */    
-    public static ArrayList<Person> getActivities() {
+    public static ArrayList<Person> getActivities(int selectedScenario) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -415,10 +418,13 @@ public class PersonController {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(connectionUrl);
             // Check for existing Person in DB
-            String SQL = "SELECT person.PID, person.P_TYPE, activity.arrive_datetime, activity.start_floor, activity.end_floor "
+            String SQL = "SELECT person.PID, person.P_TYPE, "
+                        + "activity.arrive_datetime, activity.start_floor, "
+                        + "activity.end_floor, activity.scenario "
                         + "FROM activity "
                         + "LEFT JOIN person "
-                        + "ON person.PID=activity.PID;";
+                        + "ON person.PID=activity.PID "
+                        + "WHERE activity.scenario = " + selectedScenario + "";
             
             stmt = con.createStatement();
             rs = stmt.executeQuery(SQL);
@@ -429,8 +435,9 @@ public class PersonController {
                 int timing = rs.getInt("arrive_datetime");
                 int arrivalFloor = rs.getInt("start_floor");
                 int destinationFloor = rs.getInt("end_floor");
+                int scenario = rs.getInt("scenario");
                 
-                activities.add(new Person(userid, type, timing, arrivalFloor, destinationFloor));
+                activities.add(new Person(userid, type, timing, arrivalFloor, destinationFloor, scenario));
             }
 
         } catch (ClassNotFoundException ex) {
