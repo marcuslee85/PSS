@@ -49,11 +49,12 @@ public class Lift {
     }
 
     public boolean addPerson(Person p1) {
-        if (persons.size() >= 9) {
+        if ( (persons.size() + personsToPickUp.size()) >= 10) {
             return false;
+        } else {
+            personsToPickUp.add(p1);
+            return true;
         }
-        personsToPickUp.add(p1);
-        return true;
     }
 
     private void pickUpPerson() {
@@ -103,7 +104,7 @@ public class Lift {
             }
             if (!persons.isEmpty()) {
                 if (direction.equalsIgnoreCase("up")) {
-                    if(floor==12){
+                    if (floor == 12) {
                         setDirectionNotMoving();
                         return floor;
                     }
@@ -115,7 +116,7 @@ public class Lift {
                     pickUpPerson(); //move from queue to lift
                     return floor;
                 } else if (direction.equalsIgnoreCase("down")) {
-                    if(floor==-2){
+                    if (floor == -2) {
                         setDirectionNotMoving();
                         return floor;
                     }
@@ -131,13 +132,13 @@ public class Lift {
         }
         if (direction.equalsIgnoreCase("notMoving")) {
             if (!persons.isEmpty() && persons.get(0).getDestinationFloor() != floor) {
-                    if(persons.get(0).getDestinationFloor() > floor){
-                        setDirectionUp();
-                    }
-                    if(persons.get(0).getDestinationFloor() < floor){
-                        setDirectionDown();
-                    }
+                if (persons.get(0).getDestinationFloor() > floor) {
+                    setDirectionUp();
                 }
+                if (persons.get(0).getDestinationFloor() < floor) {
+                    setDirectionDown();
+                }
+            }
         }
 
         return floor;

@@ -60,7 +60,7 @@ class LiftController {
     public void setLift5(Lift lift5) {
         this.lift5 = lift5;
     }
-    
+
     public boolean pickUp(Person p1) {
         if (p1.getArrivalFloor() < p1.getDestinationFloor()) {
             //going up
@@ -85,7 +85,8 @@ class LiftController {
                     return true;
                 }
             }
-        } else if (p1.getArrivalFloor() > p1.getDestinationFloor()) {
+        }
+        if (p1.getArrivalFloor() > p1.getDestinationFloor()) {
             if (lift1.direction.equalsIgnoreCase("down") && lift1.floor > p1.getArrivalFloor()) {
                 if (lift1.addPerson(p1)) {
                     return true;
@@ -107,34 +108,36 @@ class LiftController {
                     return true;
                 }
             }
-        } else {
-            if ((lift1.direction.equalsIgnoreCase("notMoving"))) {
-                if (lift1.addPerson(p1)) {
-                    return true;
-                }
-            }
-            if ((lift2.direction.equalsIgnoreCase("notMoving"))) {
-                if (lift2.addPerson(p1)) {
-                    return true;
-                }
-            }
-            if ((lift3.direction.equalsIgnoreCase("notMoving"))) {
-                if (lift3.addPerson(p1)) {
-                    return true;
-                }
-            }
-            if ((lift4.direction.equalsIgnoreCase("notMoving"))) {
-                if (lift4.addPerson(p1)) {
-                    return true;
-                }
-            }
-            if ((lift5.direction.equalsIgnoreCase("notMoving"))) {
-                if (lift5.addPerson(p1)) {
-                    return true;
-                }
+        }
+
+        if ((lift1.direction.equalsIgnoreCase("notMoving")) ) {
+            if (lift1.addPerson(p1)) {
+                return true;
             }
         }
-        return false; //all lifts full or in wrong direction
+        if ((lift2.direction.equalsIgnoreCase("notMoving"))) {
+            if (lift2.addPerson(p1)) {
+                return true;
+            }
+        }
+        if ((lift3.direction.equalsIgnoreCase("notMoving"))) {
+            if (lift3.addPerson(p1)) {
+                return true;
+            }
+        }
+        if ((lift4.direction.equalsIgnoreCase("notMoving"))) {
+            if (lift4.addPerson(p1)) {
+                return true;
+            }
+        }
+        if ((lift5.direction.equalsIgnoreCase("notMoving"))) {
+            if (lift5.addPerson(p1)) {
+                return true;
+            }
+        }
+    
+
+    return false; //all lifts full or in wrong direction
     }
     
     public int liftGetNextStep(int i1){
