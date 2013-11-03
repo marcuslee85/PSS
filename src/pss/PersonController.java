@@ -84,11 +84,11 @@ public class PersonController {
     }
     
     /**
-     * Adds new default floors for persons in DB (WIP)
+     * Adds new default floors by persons in DB (WIP)
      * TO CONFIRM: How is Priority incremented when new default floor is added?
      * And what happens with deleted floors?
      */
-    public static boolean addDefaultFloors(ArrayList<DefaultFloor> defaultFloors) {
+    public static boolean addDefaultFloors(Person p1) {
 
         Connection con = null;
         Statement stmt = null;
@@ -97,26 +97,10 @@ public class PersonController {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(connectionUrl);
             // For each default floor to be added
-            for (DefaultFloor df : defaultFloors) {
-                int id = df.userid;
-                int floor = df.floor;
-                // Check for existing default floor for person in DB
-                // Assume that check for person's existence was done elsewhere
-                String SQL = "SELECT * FROM default_floor "
-                        + "WHERE PID = " + id
-                        + "AND default_floor_id = " + floor + "";
-
-                stmt = con.createStatement();
-                rs = stmt.executeQuery(SQL);
-
-                if (!rs.next()) {
-                    // If this default floor does not exist for said person - add into DB.
-
-                    //Placeholder
-                } else {
-                    // If this default floor exists for said person - ???
-                }
-            }
+            
+            
+            
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -229,17 +213,19 @@ public class PersonController {
             rs = stmt.executeQuery(SQL);
             
             if (!rs.next()) {
-                // If person does not exist in DB - error and return false
-                return false;
-            } else {
-                // If person exists in DB - add schedule and return true
-                
-                SQL = "INSERT INTO schedule (floor, start_datetime, end_datetime, PID) VALUES ("
-                        + scheduledFloor + "," + startTime + "," + endTime + "," + id + ")";
+                // If person does not exist in DB, create new Person
+                SQL = "INSERT INTO person (PID, P_TYPE) "
+                    + "VALUES (" + id + "," + type + ")";
                 stmt = con.createStatement();
                 stmt.executeUpdate(SQL);
-                return true;
+                return false;
             }
+
+            SQL = "INSERT INTO schedule (floor, start_datetime, end_datetime, PID) VALUES ("
+                    + scheduledFloor + "," + startTime + "," + endTime + "," + id + ")";
+            stmt = con.createStatement();
+            stmt.executeUpdate(SQL);
+            return true;
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PersonController.class
@@ -335,9 +321,9 @@ public class PersonController {
     
     
     /**
-     * Adds new activity for person in DB
+     * Adds new activities for person in DB
      */    
-    public static boolean addActivity(Person p1) {
+    public static boolean addActivity(Person p1, int scenario) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -349,7 +335,6 @@ public class PersonController {
             int timing = p1.timing;
             int arrivalFloor = p1.arrivalFloor;
             int destinationFloor = p1.destinationFloor;
-            int scenario = p1.scenario;
             // Check for existing Person in DB
             String SQL = "SELECT PID, P_TYPE FROM person WHERE PID = "
                     + userid + " AND P_TYPE = "
@@ -359,19 +344,20 @@ public class PersonController {
             rs = stmt.executeQuery(SQL);
             
             if (!rs.next()) {
-                // If person does not exist in DB - error and return false
-                return false;
-            } else {
-                // If person exists in DB - add activity and return true
-                
-                SQL = "INSERT INTO activity (arrive_datetime, start_floor, end_floor, PID, scenario) "
-                        + "VALUES (" + timing + "," + arrivalFloor
-                        + "," + destinationFloor + "," + userid
-                        + scenario + ")";
+                // If person does not exist in DB, create new Person
+                SQL = "INSERT INTO person (PID, P_TYPE) "
+                    + "VALUES (" + userid + "," + type + ")";
                 stmt = con.createStatement();
                 stmt.executeUpdate(SQL);
-                return true;
-            }
+                return false;
+            } 
+            SQL = "INSERT INTO activity (arrive_datetime, start_floor, end_floor, PID, scenario) "
+                    + "VALUES (" + timing + "," + arrivalFloor
+                    + "," + destinationFloor + "," + userid
+                    + scenario + ")";
+            stmt = con.createStatement();
+            stmt.executeUpdate(SQL);
+            return true;
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PersonController.class
@@ -435,9 +421,8 @@ public class PersonController {
                 int timing = rs.getInt("arrive_datetime");
                 int arrivalFloor = rs.getInt("start_floor");
                 int destinationFloor = rs.getInt("end_floor");
-                int scenario = rs.getInt("scenario");
                 
-                activities.add(new Person(userid, type, timing, arrivalFloor, destinationFloor, scenario));
+                activities.add(new Person(userid, type, timing, arrivalFloor, destinationFloor));
             }
 
         } catch (ClassNotFoundException ex) {
