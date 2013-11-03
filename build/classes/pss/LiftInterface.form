@@ -138,28 +138,23 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="Scenario2" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Scenario1" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="WeekendToggle" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Scenario5" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="Scenario2" linkSize="6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="Scenario3" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="Scenario4" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="Scenario5" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="Scenario1" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="WeekendToggle" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="Scenario3" linkSize="6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -206,8 +201,6 @@
                       <Component id="Scenario2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Scenario3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Scenario4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Scenario5" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -783,17 +776,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Scenario3ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Scenario4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Scenario 4"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Scenario4ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="Scenario5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Scenario 5"/>
+        <Property name="text" type="java.lang.String" value="Scenario 4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Scenario5ActionPerformed"/>

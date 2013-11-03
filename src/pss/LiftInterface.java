@@ -96,7 +96,6 @@ public class LiftInterface extends javax.swing.JFrame {
         Scenario1 = new javax.swing.JButton();
         Scenario2 = new javax.swing.JButton();
         Scenario3 = new javax.swing.JButton();
-        Scenario4 = new javax.swing.JButton();
         Scenario5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -423,14 +422,7 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        Scenario4.setText("Scenario 4");
-        Scenario4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Scenario4ActionPerformed(evt);
-            }
-        });
-
-        Scenario5.setText("Scenario 5");
+        Scenario5.setText("Scenario 4");
         Scenario5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Scenario5ActionPerformed(evt);
@@ -536,23 +528,19 @@ public class LiftInterface extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(18, 18, 18)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                        .add(Scenario2)
-                                        .add(6, 6, 6))
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, Scenario1)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, WeekendToggle))
-                                        .addContainerGap())
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                        .add(Scenario3)
-                                        .addContainerGap())
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                        .add(Scenario4)
-                                        .addContainerGap())
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                        .add(Scenario5)
-                                        .addContainerGap())))))
+                                    .add(Scenario5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 115, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                            .add(Scenario2)
+                                            .add(6, 6, 6))
+                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                                .add(org.jdesktop.layout.GroupLayout.TRAILING, Scenario1)
+                                                .add(org.jdesktop.layout.GroupLayout.TRAILING, WeekendToggle))
+                                            .addContainerGap())
+                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                            .add(Scenario3)
+                                            .addContainerGap()))))))
                     .add(layout.createSequentialGroup()
                         .add(Lift3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -572,7 +560,7 @@ public class LiftInterface extends javax.swing.JFrame {
 
         layout.linkSize(new java.awt.Component[] {Lift1Bar, Lift2Bar, Lift3Bar, Lift4Bar, Lift5Bar}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
-        layout.linkSize(new java.awt.Component[] {Scenario1, Scenario2, Scenario3, Scenario4, Scenario5, WeekendToggle}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+        layout.linkSize(new java.awt.Component[] {Scenario1, Scenario2, Scenario3, WeekendToggle}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -596,8 +584,6 @@ public class LiftInterface extends javax.swing.JFrame {
                         .add(Scenario2)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(Scenario3)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Scenario4)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(Scenario5)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -955,9 +941,9 @@ public class LiftInterface extends javax.swing.JFrame {
         allInLiftQueues.addAll(lc1.getLift4().personsToPickUp);
         allInLiftQueues.addAll(lc1.getLift5().personsToPickUp);
         for (int i = 0; i < allInLiftQueues.size(); i++) {
+            System.out.println("size of all in lift queues "+allInLiftQueues.size()+ " i is "+i );
             if (queue.get(i).getType() == 4) {
                 gotManagementOrBlackOps = true;
-                break;
             }
         }
         
@@ -1083,11 +1069,6 @@ public class LiftInterface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Scenario3ActionPerformed
 
-    private void Scenario4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Scenario4ActionPerformed
-        //3 cleaners weekend based on timing
-        
-    }//GEN-LAST:event_Scenario4ActionPerformed
-
     private void Scenario5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Scenario5ActionPerformed
         //30 employees going to level 11, 1 manager going to level 7
         Random r = new Random();
@@ -1170,7 +1151,6 @@ public class LiftInterface extends javax.swing.JFrame {
     private javax.swing.JButton Scenario1;
     private javax.swing.JButton Scenario2;
     private javax.swing.JButton Scenario3;
-    private javax.swing.JButton Scenario4;
     private javax.swing.JButton Scenario5;
     private javax.swing.JLabel Time;
     private javax.swing.JProgressBar TotalQueue;

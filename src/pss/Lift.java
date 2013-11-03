@@ -146,6 +146,7 @@ public class Lift {
                 }
             }
         }
+        System.out.println("");
         return floor;
     }
 }
