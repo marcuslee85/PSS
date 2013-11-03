@@ -103,8 +103,9 @@ public class Lift {
                 if (direction.equalsIgnoreCase("up")) {
                     if (floor == 12) {
                         setDirectionNotMoving();
+                    }else{
+                        floor++;
                     }
-                    floor++;
                     if (floor == 0) {
                         floor = 1;
                     }
@@ -114,8 +115,9 @@ public class Lift {
                 } else if (direction.equalsIgnoreCase("down")) {
                     if (floor == -2) {
                         setDirectionNotMoving();
+                    }else{
+                        floor--;
                     }
-                    floor--;
                     if (floor == 0) {
                         floor = -1;
                     }

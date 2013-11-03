@@ -6,7 +6,6 @@ package pss;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Timer;
 
 /**
  *
@@ -16,15 +15,14 @@ public class LiftInterface extends javax.swing.JFrame {
 
     ArrayList<Person> queue;
     LiftController lc1;
-    PersonController pc1;
     int time; //hhmmss
+
     /**
      * Creates new form LiftInterface
      */
     public LiftInterface() {
         this.queue = new ArrayList<Person>();
         this.lc1 = new LiftController();
-        this.pc1 = new PersonController();
         this.time = 000000;
         initComponents();
     }
@@ -822,7 +820,7 @@ public class LiftInterface extends javax.swing.JFrame {
         // Randomise the queues according to requirements
         //5% VVIP cannot share lifts due to vvip protocol
         //10% Black ops cannot share lifts but lock down mode
-        
+
         Random r = new Random();
 
         if (WeekendToggle.isSelected()) {
@@ -907,32 +905,92 @@ public class LiftInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_CleanerActionPerformed
 
     private void NextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextStepActionPerformed
-        for (int i=0; i < queue.size();i++) {
-            if(queue.get(i).getTiming()<time){
-                if(lc1.pickUp(queue.get(i))){
-                    queue.remove(i);
+        //if queue contains black ops
+        //have boolean for only management and black ops until its cleared
+        boolean gotManagementOrBlackOps = false;
+
+        //check all lifts
+        for (int i = 0; i < queue.size(); i++) {
+            if (queue.get(i).getType() == 4) {
+                if (queue.get(i).getTiming() < time) {
+                    gotManagementOrBlackOps = true;
+                    break;
                 }
             }
         }
-        
-        time=time+5; //adds 5 seconds to the clock each time
-        
+
+        ArrayList<Person> allInLiftQueues = new ArrayList<Person>();
+        allInLiftQueues.addAll(lc1.getLift1().getPersons());
+        allInLiftQueues.addAll(lc1.getLift2().getPersons());
+        allInLiftQueues.addAll(lc1.getLift3().getPersons());
+        allInLiftQueues.addAll(lc1.getLift4().getPersons());
+        allInLiftQueues.addAll(lc1.getLift5().getPersons());
+        allInLiftQueues.addAll(lc1.getLift1().personsToPickUp);
+        allInLiftQueues.addAll(lc1.getLift2().personsToPickUp);
+        allInLiftQueues.addAll(lc1.getLift3().personsToPickUp);
+        allInLiftQueues.addAll(lc1.getLift4().personsToPickUp);
+        allInLiftQueues.addAll(lc1.getLift5().personsToPickUp);
+        for (int i = 0; i < allInLiftQueues.size(); i++) {
+            if (queue.get(i).getType() == 4) {
+                gotManagementOrBlackOps = true;
+                break;
+            }
+        }
+
+        for (int i = 0; i < queue.size(); i++) {
+            if (gotManagementOrBlackOps == false) {
+                if (queue.get(i).getTiming() < time) {
+                    if (lc1.pickUp(queue.get(i))) {
+                        ProcessingStatus.setText(ProcessingStatus.getText() + queue.get(i).getTypeName() + " entered at " + queue.get(i).timing + " \r\n");
+                        queue.remove(i);
+                    }
+                }
+            } else {
+                if (queue.get(i).getType() == 4 || queue.get(i).getType() == 3) {
+                    if (queue.get(i).getTiming() < time) {
+                        if (lc1.pickUp(queue.get(i))) {
+                            ProcessingStatus.setText(ProcessingStatus.getText() + "Black Ops Lockdown at " + queue.get(i).timing + " \r\n");
+                            queue.remove(i);
+                        }
+                    }
+                }
+            }
+        }
+
+        time = time + 5; //adds 5 seconds to the clock each time
+
         Time.setText(String.valueOf(time));
         Lift1Bar.setValue(lc1.liftGetNextStep(1));
         Lift1Bar.setString(String.valueOf(lc1.liftGetNextStep(1)));
-        Lift1Persons.setText(lc1.getLift1().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(1)));
+        Lift1Persons.setText(lc1.getLift1().getDirection() + " " + String.valueOf(lc1.liftGetNumberOfPersons(1)));
         Lift2Bar.setValue(lc1.liftGetNextStep(2));
         Lift2Bar.setString(String.valueOf(lc1.liftGetNextStep(2)));
-        Lift2Persons.setText(lc1.getLift2().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(2)));
+        Lift2Persons.setText(lc1.getLift2().getDirection() + " " + String.valueOf(lc1.liftGetNumberOfPersons(2)));
         Lift3Bar.setValue(lc1.liftGetNextStep(3));
         Lift3Bar.setString(String.valueOf(lc1.liftGetNextStep(3)));
-        Lift3Persons.setText(lc1.getLift3().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(3)));
+        Lift3Persons.setText(lc1.getLift3().getDirection() + " " + String.valueOf(lc1.liftGetNumberOfPersons(3)));
         Lift4Bar.setValue(lc1.liftGetNextStep(4));
         Lift4Bar.setString(String.valueOf(lc1.liftGetNextStep(4)));
-        Lift4Persons.setText(lc1.getLift4().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(4)));
+        Lift4Persons.setText(lc1.getLift4().getDirection() + " " + String.valueOf(lc1.liftGetNumberOfPersons(4)));
         Lift5Bar.setValue(lc1.liftGetNextStep(5));
         Lift5Bar.setString(String.valueOf(lc1.liftGetNextStep(5)));
-        Lift5Persons.setText(lc1.getLift5().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(5)));
+        Lift5Persons.setText(lc1.getLift5().getDirection() + " " + String.valueOf(lc1.liftGetNumberOfPersons(5)));
+        
+        for (int i = 0; i < lc1.getLift1().getPersons().size(); i++) {
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has a " + lc1.getLift1().getPersons().get(i).getTypeName() + " \r\n");
+        }
+        for (int i = 0; i < lc1.getLift2().getPersons().size(); i++) {
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 2 has a " + lc1.getLift2().getPersons().get(i).getTypeName() + " \r\n");
+        }
+        for (int i = 0; i < lc1.getLift3().getPersons().size(); i++) {
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 3 has a " + lc1.getLift3().getPersons().get(i).getTypeName() + " \r\n");
+        }
+        for (int i = 0; i < lc1.getLift4().getPersons().size(); i++) {
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 4 has a " + lc1.getLift4().getPersons().get(i).getTypeName() + " \r\n");
+        }
+        for (int i = 0; i < lc1.getLift5().getPersons().size(); i++) {
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 5 has a " + lc1.getLift5().getPersons().get(i).getTypeName() + " \r\n");
+        }
         
     }//GEN-LAST:event_NextStepActionPerformed
 

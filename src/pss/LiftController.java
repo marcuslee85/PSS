@@ -62,6 +62,66 @@ class LiftController {
     }
 
     public boolean pickUp(Person p1) {
+        int liftNumber=1;
+        int numberOfPplInQueue=10;
+        //black ops and management only
+        //all lifts on lockdown
+        if(p1.type==1 || p1.type==2 || p1.type==3){
+            if(lift1.personsToPickUp.size()<numberOfPplInQueue){
+                numberOfPplInQueue=lift1.personsToPickUp.size();
+            }
+            if(lift2.personsToPickUp.size()<numberOfPplInQueue){
+                numberOfPplInQueue=lift2.personsToPickUp.size();
+                liftNumber=2;
+            }
+            if(lift3.personsToPickUp.size()<numberOfPplInQueue){
+                numberOfPplInQueue=lift3.personsToPickUp.size();
+                liftNumber=3;
+            }
+            if(lift4.personsToPickUp.size()<numberOfPplInQueue){
+                numberOfPplInQueue=lift4.personsToPickUp.size();
+                liftNumber=4;
+            }
+            if(lift5.personsToPickUp.size()<numberOfPplInQueue){
+                liftNumber=5;
+            }
+            
+            if(liftNumber==1){
+                if (lift1.addPerson(p1)) {
+                    return true;
+                }
+            }else if(liftNumber==2){
+                if (lift2.addPerson(p1)) {
+                    return true;
+                }
+            }else if(liftNumber==3){
+                if (lift3.addPerson(p1)) {
+                    return true;
+                }
+            }else if(liftNumber==4){
+                if (lift4.addPerson(p1)) {
+                    return true;
+                }
+            }else{
+                if (lift5.addPerson(p1)) {
+                    return true;
+                }
+            }
+        }
+        
+        //vvip
+        //check which lift first to clear
+        //add vip to queue
+        //lift should not add anymore persons until vip is out of lift queue and lift persons
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (p1.getArrivalFloor() < p1.getDestinationFloor()) {
             //going up
             if (lift1.direction.equalsIgnoreCase("up") && lift1.floor < p1.getArrivalFloor()) {
