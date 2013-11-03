@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class PersonController {
 
     static String connectionUrl = "jdbc:mysql://localhost:3306/lift?"
-            + "zeroDateTimeBehavior=convertToNull"
+            + "zeroDateTimeBehavior=convertToNull&"
             + "user=root&password=admin";
 
     /**
@@ -55,7 +55,7 @@ public class PersonController {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
             return false;
         } finally {
 
@@ -85,8 +85,7 @@ public class PersonController {
     
     /**
      * Adds new default floors by persons in DB (WIP)
-     * TO CONFIRM: How is Priority incremented when new default floor is added?
-     * And what happens with deleted floors?
+     * CANCELS OLD DEFAULT FLOORS AND IMPLEMENTS NEW ONES
      */
     public static boolean addDefaultFloors(Person p1) {
 
@@ -97,15 +96,48 @@ public class PersonController {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(connectionUrl);
             // For each default floor to be added
+            int userid = p1.userid;
+            int type = p1.type;
+            int exitFloor = p1.arrivalFloor;
+            int officeFloor = p1.destinationFloor;
+            
+            String SQL = "SELECT PID, P_TYPE FROM person WHERE PID = "
+                    + userid + " AND P_TYPE = "
+                    + type + "";
+            
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
+            
+            if (!rs.next()) {
+                // If person does not exist in DB, create new Person
+                SQL = "INSERT INTO person (PID, P_TYPE) "
+                    + "VALUES (" + userid + "," + type + ")";
+                stmt = con.createStatement();
+                stmt.executeUpdate(SQL);
+            } 
+            //Deletes old entries
+            SQL = "DELETE d.* FROM default_floor d "
+                    + "WHERE PID = " + userid + "";
+            stmt = con.createStatement();
+            stmt.executeUpdate(SQL);
+            
+            //Creates new entries
+            SQL = "INSERT INTO default_floor (default_floor_ID, priority, PID) "
+               + "VALUES (" + officeFloor + ",1," + userid + ")";
+            stmt = con.createStatement();
+            stmt.executeUpdate(SQL);
             
             
-            
+            SQL = "INSERT INTO default_floor (default_floor_ID, priority, PID) "
+               + "VALUES (" + exitFloor + ",2," + userid + ")";
+            stmt = con.createStatement();
+            stmt.executeUpdate(SQL);
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
             return false;
         } finally {
 
@@ -166,7 +198,7 @@ public class PersonController {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
         } finally {
 
             if (stmt != null) {
@@ -196,17 +228,21 @@ public class PersonController {
     /**
      * Adds new schedule for person in DB
      */
-    public static boolean addSchedule(int id, int type, int scheduledFloor, int startTime, int endTime) {
+    public static boolean addSchedule(Person p1, int endTime) {
         //placeholder
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
         try {
+            int userid = p1.userid;
+            int type = p1.type;
+            int startTime = p1.timing;
+            int floor = p1.destinationFloor;
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(connectionUrl);
             // Check for existing Person in DB
             String SQL = "SELECT PID, P_TYPE FROM person WHERE PID = "
-                    + id + " AND P_TYPE = "
+                    + userid + " AND P_TYPE = "
                     + type + "";
             
             stmt = con.createStatement();
@@ -215,14 +251,13 @@ public class PersonController {
             if (!rs.next()) {
                 // If person does not exist in DB, create new Person
                 SQL = "INSERT INTO person (PID, P_TYPE) "
-                    + "VALUES (" + id + "," + type + ")";
+                    + "VALUES (" + userid + "," + type + ")";
                 stmt = con.createStatement();
                 stmt.executeUpdate(SQL);
-                return false;
             }
 
             SQL = "INSERT INTO schedule (floor, start_datetime, end_datetime, PID) VALUES ("
-                    + scheduledFloor + "," + startTime + "," + endTime + "," + id + ")";
+                    + floor + "," + startTime + "," + endTime + "," + userid + ")";
             stmt = con.createStatement();
             stmt.executeUpdate(SQL);
             return true;
@@ -231,7 +266,7 @@ public class PersonController {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
             return false;
         } finally {
 
@@ -292,7 +327,7 @@ public class PersonController {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
         } finally {
 
             if (stmt != null) {
@@ -349,12 +384,11 @@ public class PersonController {
                     + "VALUES (" + userid + "," + type + ")";
                 stmt = con.createStatement();
                 stmt.executeUpdate(SQL);
-                return false;
             } 
             SQL = "INSERT INTO activity (arrive_datetime, start_floor, end_floor, PID, scenario) "
                     + "VALUES (" + timing + "," + arrivalFloor
                     + "," + destinationFloor + "," + userid
-                    + scenario + ")";
+                    + "," + scenario + ")";
             stmt = con.createStatement();
             stmt.executeUpdate(SQL);
             return true;
@@ -363,7 +397,7 @@ public class PersonController {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
             return false;
         } finally {
 
@@ -429,7 +463,7 @@ public class PersonController {
             Logger.getLogger(PersonController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
-            //System.out.println("SQL Exception: " + e.toString());
+            System.out.println("SQL Exception: " + e.toString());
         } finally {
 
             if (stmt != null) {
