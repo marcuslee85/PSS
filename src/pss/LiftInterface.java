@@ -872,9 +872,11 @@ public class LiftInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_CleanerActionPerformed
 
     private void NextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextStepActionPerformed
-        for (Person person : queue) {
-                lc1.pickUp(person);
-        }
+        for (int i=0; i < queue.size();i++) {
+                if(lc1.pickUp(queue.get(i))){
+                    queue.remove(i);
+                }
+        }//@todo delete from queue after picking up
         
         Lift1Bar.setValue(lc1.liftGetNextStep(1));
         Lift1Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(1)));
