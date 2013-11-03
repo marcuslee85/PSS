@@ -17,13 +17,9 @@ public class Person {
     public Person(int type) {
         Random r = new Random();
         this.type = type;
-<<<<<<< HEAD
         //this.timing = r.nextInt(23) * 10000 + r.nextInt(59) * 100 + r.nextInt(59); //hhmmss
         this.timing = r.nextInt(59) * 100 + r.nextInt(59); //@todo switch back to other one hhmmss
-        this.scenario = r.nextInt(5) + 1;
-=======
         this.timing = r.nextInt(23) * 10000 + r.nextInt(59) * 100 + r.nextInt(59); //hhmmss
->>>>>>> 3060cd0fdee67f2493c0ede66586eb098564f689
         this.destinationFloor = r.nextInt(15) - 2; //@todo include carparks
         if (this.destinationFloor == 0) {
             this.destinationFloor = 1;
