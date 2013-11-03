@@ -6,6 +6,7 @@ package pss;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
 
 /**
  *
@@ -194,28 +195,28 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        VVIP.setText("Add 1 VVIP");
+        VVIP.setText("Add 1 VVIP Trip");
         VVIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VVIPActionPerformed(evt);
             }
         });
 
-        BlackOps.setText("Add 1 Black Ops");
+        BlackOps.setText("Add 1 Black Ops Trip");
         BlackOps.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BlackOpsActionPerformed(evt);
             }
         });
 
-        Management.setText("Add 1 Management");
+        Management.setText("Add 1 Management Trip");
         Management.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManagementActionPerformed(evt);
             }
         });
 
-        Employee.setText("Add 1 Employee");
+        Employee.setText("Add 1 Employee Trip");
         Employee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmployeeActionPerformed(evt);
@@ -265,15 +266,19 @@ public class LiftInterface extends javax.swing.JFrame {
         Lift5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Lift5.setText("Lift 5");
 
+        VVIPQueue.setMaximum(10000);
         VVIPQueue.setString("0");
         VVIPQueue.setStringPainted(true);
 
+        BlackOpsQueue.setMaximum(10000);
         BlackOpsQueue.setString("0");
         BlackOpsQueue.setStringPainted(true);
 
+        ManagementQueue.setMaximum(10000);
         ManagementQueue.setString("0");
         ManagementQueue.setStringPainted(true);
 
+        EmployeeQueue.setMaximum(10000);
         EmployeeQueue.setString("0");
         EmployeeQueue.setStringPainted(true);
 
@@ -298,13 +303,14 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        BlackOpsEmployee.setText("Add 1 Black Ops Employee");
+        BlackOpsEmployee.setText("Add 1 Black Ops Employee Trip");
         BlackOpsEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BlackOpsEmployeeActionPerformed(evt);
             }
         });
 
+        BlackOpsEmployeeQueue.setMaximum(10000);
         BlackOpsEmployeeQueue.setString("0");
         BlackOpsEmployeeQueue.setStringPainted(true);
 
@@ -315,33 +321,36 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        Visitor.setText("Add 1 Visitor");
+        Visitor.setText("Add 1 Visitor Trip");
         Visitor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VisitorActionPerformed(evt);
             }
         });
 
+        VisitorQueue.setMaximum(10000);
         VisitorQueue.setString("0");
         VisitorQueue.setStringPainted(true);
 
-        Maintenance.setText("Add 1 Maintenance");
+        Maintenance.setText("Add 1 Maintenance Trip");
         Maintenance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MaintenanceActionPerformed(evt);
             }
         });
 
-        Cleaner.setText("Add 1 Cleaner");
+        Cleaner.setText("Add 1 Cleaner Trip");
         Cleaner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CleanerActionPerformed(evt);
             }
         });
 
+        MaintenanceQueue.setMaximum(10000);
         MaintenanceQueue.setString("0");
         MaintenanceQueue.setStringPainted(true);
 
+        CleanerQueue.setMaximum(10000);
         CleanerQueue.setString("0");
         CleanerQueue.setStringPainted(true);
 
@@ -385,6 +394,11 @@ public class LiftInterface extends javax.swing.JFrame {
         Lift5Persons.setText("0");
 
         Go.setText("Go");
+        Go.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Time:");
 
@@ -459,7 +473,8 @@ public class LiftInterface extends javax.swing.JFrame {
                             .add(jLabel1)
                             .add(ManagementQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 357, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 357, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(0, 3, Short.MAX_VALUE))
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -468,61 +483,67 @@ public class LiftInterface extends javax.swing.JFrame {
                         .add(Lift1Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
                         .add(Lift1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(Lift1Persons)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(Lift1Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
+                        .add(30, 30, 30)
+                        .add(Lift2Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(layout.createSequentialGroup()
+                        .add(12, 12, 12)
                         .add(Lift2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(Lift2Persons))
-                    .add(Lift2Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(Lift3Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(Lift2Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .add(9, 9, 9)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(layout.createSequentialGroup()
+                        .add(30, 30, 30)
+                        .add(Lift3Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(53, 53, 53)
+                        .add(Lift4Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(Lift5Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(30, 30, 30)
+                                .add(jLabel2)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(Time)
+                                .add(14, 14, 14))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                .add(18, 18, 18)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(jButton16)
+                                        .add(6, 6, 6))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton15)
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, WeekendToggle))
+                                        .addContainerGap())
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(jButton17)
+                                        .addContainerGap())
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(jButton18)
+                                        .addContainerGap())
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(jButton19)
+                                        .addContainerGap())))))
+                    .add(layout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(Lift3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(Lift3Persons)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(Lift4Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(Lift3Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Lift5Bar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
                         .add(Lift4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Lift4Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(Lift4Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(Lift5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(Lift5Persons)))
-                .add(150, 150, 150)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(62, 62, 62)
-                        .add(jLabel2)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Time)
-                        .add(14, 14, 14))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(jButton16)
-                        .add(6, 6, 6))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton15)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, WeekendToggle))
-                        .addContainerGap())
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(jButton17)
-                        .addContainerGap())
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(jButton18)
-                        .addContainerGap())
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(jButton19)
-                        .addContainerGap())))
+                        .add(Lift5Persons, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(119, 119, 119))))
         );
 
         layout.linkSize(new java.awt.Component[] {BlackOps, BlackOpsEmployee, ClearButton, Employee, Management, NextStep, ProcessQueues, VVIP}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
@@ -584,51 +605,45 @@ public class LiftInterface extends javax.swing.JFrame {
                                     .add(VVIPQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(Management)
+                                    .add(ManagementQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(BlackOpsEmployeeQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(BlackOpsEmployee))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(EmployeeQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(Employee))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(VisitorQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(Visitor))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(MaintenanceQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(Maintenance))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(CleanerQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(Cleaner))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
-                                        .add(ManagementQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(layout.createSequentialGroup()
-                                                .add(BlackOpsEmployeeQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .add(15, 15, 15)
-                                                .add(EmployeeQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                            .add(layout.createSequentialGroup()
-                                                .add(70, 70, 70)
-                                                .add(VisitorQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                                .add(MaintenanceQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .add(15, 15, 15)
-                                                .add(CleanerQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                        .add(RandomButton)
+                                        .add(6, 6, 6))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(jLabel1)
+                                        .add(18, 18, 18)))
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                    .add(ClearButton)
                                     .add(layout.createSequentialGroup()
-                                        .add(Management)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(BlackOpsEmployee)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(Employee)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(Visitor)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                            .add(jLabel1)
-                                            .add(layout.createSequentialGroup()
-                                                .add(Maintenance)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                                .add(Cleaner)))
+                                            .add(TotalQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(ProcessQueues))
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(layout.createSequentialGroup()
-                                                .add(RandomButton)
-                                                .add(6, 6, 6)
-                                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                                    .add(ClearButton)
-                                                    .add(layout.createSequentialGroup()
-                                                        .add(ProcessQueues)
-                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(NextStep)
-                                                        .add(35, 35, 35))))
-                                            .add(layout.createSequentialGroup()
-                                                .add(TotalQueue, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .add(114, 114, 114))))))
+                                        .add(NextStep)
+                                        .add(35, 35, 35))))
                             .add(layout.createSequentialGroup()
                                 .add(jButton14)
                                 .add(5, 5, 5)
@@ -820,14 +835,14 @@ public class LiftInterface extends javax.swing.JFrame {
             MaintenanceQueue.setValue(r.nextInt(100));
             CleanerQueue.setValue(r.nextInt(50) + 50);
         } else {
-            BlackOpsQueue.setValue(r.nextInt(100));
-            VVIPQueue.setValue(r.nextInt(100));
-            ManagementQueue.setValue(r.nextInt(100));
-            BlackOpsEmployeeQueue.setValue(r.nextInt(100));
-            EmployeeQueue.setValue(r.nextInt(100));
-            VisitorQueue.setValue(r.nextInt(100));
-            MaintenanceQueue.setValue(r.nextInt(100));
-            CleanerQueue.setValue(r.nextInt(100));
+            BlackOpsQueue.setValue(r.nextInt(10000));
+            VVIPQueue.setValue(r.nextInt(10000));
+            ManagementQueue.setValue(r.nextInt(10000));
+            BlackOpsEmployeeQueue.setValue(r.nextInt(10000));
+            EmployeeQueue.setValue(r.nextInt(10000));
+            VisitorQueue.setValue(r.nextInt(10000));
+            MaintenanceQueue.setValue(r.nextInt(10000));
+            CleanerQueue.setValue(r.nextInt(10000));
         }
 
         BlackOpsQueue.setString(String.valueOf(BlackOpsQueue.getValue()));
@@ -901,23 +916,24 @@ public class LiftInterface extends javax.swing.JFrame {
         }
         
         time=time+5; //adds 5 seconds to the clock each time
+        
         Time.setText(String.valueOf(time));
         Lift1Bar.setValue(lc1.liftGetNextStep(1));
-        Lift1Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(1)));
+        Lift1Bar.setString(String.valueOf(lc1.liftGetNextStep(1)));
+        Lift1Persons.setText(lc1.getLift1().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(1)));
         Lift2Bar.setValue(lc1.liftGetNextStep(2));
-        Lift2Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(2)));
+        Lift2Bar.setString(String.valueOf(lc1.liftGetNextStep(2)));
+        Lift2Persons.setText(lc1.getLift2().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(2)));
         Lift3Bar.setValue(lc1.liftGetNextStep(3));
-        Lift3Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(3)));
+        Lift3Bar.setString(String.valueOf(lc1.liftGetNextStep(3)));
+        Lift3Persons.setText(lc1.getLift3().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(3)));
         Lift4Bar.setValue(lc1.liftGetNextStep(4));
-        Lift4Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(4)));
+        Lift4Bar.setString(String.valueOf(lc1.liftGetNextStep(4)));
+        Lift4Persons.setText(lc1.getLift4().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(4)));
         Lift5Bar.setValue(lc1.liftGetNextStep(5));
-        Lift5Persons.setText(String.valueOf(lc1.liftGetNumberOfPersons(5)));
-
-        for (int i = 0; i < lc1.getLift1().getPersons().size(); i++) {
-            ProcessingStatus.setText(ProcessingStatus.getText() + "Lift1 "+i+" "+lc1.getLift1().getPersons().get(i).getArrivalFloor() +" "+lc1.getLift1().getPersons().get(i).destinationFloor+"\r\n");
-
-        }
-
+        Lift5Bar.setString(String.valueOf(lc1.liftGetNextStep(5)));
+        Lift5Persons.setText(lc1.getLift5().getDirection() +" "+ String.valueOf(lc1.liftGetNumberOfPersons(5)));
+        
     }//GEN-LAST:event_NextStepActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -929,6 +945,12 @@ public class LiftInterface extends javax.swing.JFrame {
         Lift3Bar.setValue(-2);
         Lift3Bar.setString("B2");
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void GoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoActionPerformed
+        for (int i = 0; i < 48000; i++) {
+            NextStepActionPerformed(null);
+        }
+    }//GEN-LAST:event_GoActionPerformed
 
     /**
      * @param args the command line arguments
