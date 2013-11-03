@@ -49,7 +49,7 @@ public class Lift {
     }
 
     public boolean addPerson(Person p1) {
-        if ( (persons.size() + personsToPickUp.size()) >= 10) {
+        if ((persons.size() + personsToPickUp.size()) >= 10) {
             return false;
         } else {
             personsToPickUp.add(p1);
@@ -68,11 +68,8 @@ public class Lift {
 
     public void removePerson() {
         for (int i = 0; i < persons.size(); i++) {
-            while (persons.get(i).getDestinationFloor() == floor) {
+            if (persons.get(i).getDestinationFloor() == floor) {
                 persons.remove(i);
-                if (persons.get(i).getDestinationFloor() != floor) {
-                    break;
-                }
             }
         }
     }
@@ -102,11 +99,10 @@ public class Lift {
                 setDirectionNotMoving();
                 return floor;
             }
-            if (!persons.isEmpty()) {
+            if (!persons.isEmpty() || !personsToPickUp.isEmpty()){
                 if (direction.equalsIgnoreCase("up")) {
                     if (floor == 12) {
                         setDirectionNotMoving();
-                        return floor;
                     }
                     floor++;
                     if (floor == 0) {
@@ -118,7 +114,6 @@ public class Lift {
                 } else if (direction.equalsIgnoreCase("down")) {
                     if (floor == -2) {
                         setDirectionNotMoving();
-                        return floor;
                     }
                     floor--;
                     if (floor == 0) {
@@ -131,16 +126,24 @@ public class Lift {
             }
         }
         if (direction.equalsIgnoreCase("notMoving")) {
-            if (!persons.isEmpty() && persons.get(0).getDestinationFloor() != floor) {
+            if (!persons.isEmpty()) {
                 if (persons.get(0).getDestinationFloor() > floor) {
                     setDirectionUp();
                 }
                 if (persons.get(0).getDestinationFloor() < floor) {
                     setDirectionDown();
                 }
+            } else {
+                if (!personsToPickUp.isEmpty()) {
+                    if (personsToPickUp.get(0).getArrivalFloor() > floor) {
+                        setDirectionUp();
+                    }
+                    if (personsToPickUp.get(0).getArrivalFloor() < floor) {
+                        setDirectionDown();
+                    }
+                }
             }
         }
-
         return floor;
     }
 }
