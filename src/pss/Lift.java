@@ -131,12 +131,12 @@ public class Lift {
             if (!persons.isEmpty()) {
                 if (persons.get(0).getDestinationFloor() > floor) {
                     setDirectionUp();
-                }
-                if (persons.get(0).getDestinationFloor() < floor) {
+                    persons.clear();
+                }else if (persons.get(0).getDestinationFloor() < floor) {
                     setDirectionDown();
                 }
-            } else {
-                if (!personsToPickUp.isEmpty()) {
+            } 
+                if (!personsToPickUp.isEmpty() && direction.equalsIgnoreCase("notMoving")) {
                     if (personsToPickUp.get(0).getArrivalFloor() > floor) {
                         setDirectionUp();
                     }
@@ -144,9 +144,8 @@ public class Lift {
                         setDirectionDown();
                     }
                 }
-            }
+            
         }
-        System.out.println("");
         return floor;
     }
 }

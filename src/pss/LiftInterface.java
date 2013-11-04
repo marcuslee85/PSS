@@ -528,19 +528,20 @@ public class LiftInterface extends javax.swing.JFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(18, 18, 18)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(Scenario5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 115, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                            .add(Scenario2)
-                                            .add(6, 6, 6))
-                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                                .add(org.jdesktop.layout.GroupLayout.TRAILING, Scenario1)
-                                                .add(org.jdesktop.layout.GroupLayout.TRAILING, WeekendToggle))
-                                            .addContainerGap())
-                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                            .add(Scenario3)
-                                            .addContainerGap()))))))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(Scenario2)
+                                        .add(6, 6, 6))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, Scenario1)
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, WeekendToggle))
+                                        .addContainerGap())
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(Scenario3)
+                                        .addContainerGap())
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(Scenario5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())))))
                     .add(layout.createSequentialGroup()
                         .add(Lift3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -942,7 +943,7 @@ public class LiftInterface extends javax.swing.JFrame {
         allInLiftQueues.addAll(lc1.getLift5().personsToPickUp);
         for (int i = 0; i < allInLiftQueues.size(); i++) {
             System.out.println("size of all in lift queues "+allInLiftQueues.size()+ " i is "+i );
-            if (queue.get(i).getType() == 4) {
+            if (allInLiftQueues.get(i).getType() == 4) {
                 gotManagementOrBlackOps = true;
             }
         }
@@ -1004,6 +1005,24 @@ public class LiftInterface extends javax.swing.JFrame {
             ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 5 has a " + lc1.getLift5().getPersons().get(i).getTypeName() + " \r\n");
         }
         
+//        for (int i = 0; i < lc1.getLift1().personsToPickUp.size(); i++) {
+//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.getLift1().personsToPickUp.size() + " number of people waiting.\r\n");
+//        }
+//        for (int i = 0; i < lc1.getLift2().personsToPickUp.size(); i++) {
+//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 2 has " + lc1.getLift2().personsToPickUp.size() + " number of people waiting.\r\n");
+//        }
+//        for (int i = 0; i < lc1.getLift3().personsToPickUp.size(); i++) {
+//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 3 has " + lc1.getLift3().personsToPickUp.size() + " number of people waiting.\r\n");
+//        }
+//        for (int i = 0; i < lc1.getLift4().personsToPickUp.size(); i++) {
+//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 4 has " + lc1.getLift4().personsToPickUp.size() + " number of people waiting.\r\n");
+//        }
+//        for (int i = 0; i < lc1.getLift5().personsToPickUp.size(); i++) {
+//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 5 has " + lc1.getLift5().personsToPickUp.size() + " number of people waiting.\r\n");
+//        }
+        
+        ProcessingStatus.setText(ProcessingStatus.getText() + time + " Queue has " + queue.size() + " people left. \r\n");
+
     }//GEN-LAST:event_NextStepActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -1065,7 +1084,7 @@ public class LiftInterface extends javax.swing.JFrame {
         }
         for (int i = 0; i < 30; i++) {
             //add black ops
-            queue.add(new Person(i,1,r.nextInt(60),9,-1));
+            queue.add(new Person(i,1,0030,9,-1));
         }
     }//GEN-LAST:event_Scenario3ActionPerformed
 

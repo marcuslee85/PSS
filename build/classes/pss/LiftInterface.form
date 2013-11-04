@@ -138,23 +138,24 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Scenario5" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="Scenario2" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="Scenario2" linkSize="6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Scenario1" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="WeekendToggle" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="Scenario1" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="WeekendToggle" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="Scenario3" linkSize="6" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="Scenario3" linkSize="6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="Scenario5" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
