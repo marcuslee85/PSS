@@ -332,7 +332,7 @@
   <SubComponents>
     <Component class="javax.swing.JProgressBar" name="Lift3Bar">
       <Properties>
-        <Property name="maximum" type="int" value="12"/>
+        <Property name="maximum" type="int" value="13"/>
         <Property name="minimum" type="int" value="-2"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -471,7 +471,7 @@
     </Component>
     <Component class="javax.swing.JProgressBar" name="Lift1Bar">
       <Properties>
-        <Property name="maximum" type="int" value="12"/>
+        <Property name="maximum" type="int" value="13"/>
         <Property name="minimum" type="int" value="-2"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="value" type="int" value="1"/>
@@ -481,7 +481,7 @@
     </Component>
     <Component class="javax.swing.JProgressBar" name="Lift2Bar">
       <Properties>
-        <Property name="maximum" type="int" value="12"/>
+        <Property name="maximum" type="int" value="13"/>
         <Property name="minimum" type="int" value="-2"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="value" type="int" value="1"/>
@@ -491,7 +491,7 @@
     </Component>
     <Component class="javax.swing.JProgressBar" name="Lift5Bar">
       <Properties>
-        <Property name="maximum" type="int" value="12"/>
+        <Property name="maximum" type="int" value="13"/>
         <Property name="minimum" type="int" value="-2"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="value" type="int" value="1"/>
@@ -501,7 +501,7 @@
     </Component>
     <Component class="javax.swing.JProgressBar" name="Lift4Bar">
       <Properties>
-        <Property name="maximum" type="int" value="12"/>
+        <Property name="maximum" type="int" value="13"/>
         <Property name="minimum" type="int" value="-2"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="value" type="int" value="1"/>

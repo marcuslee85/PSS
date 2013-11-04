@@ -100,7 +100,7 @@ public class LiftInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Lift3Bar.setMaximum(12);
+        Lift3Bar.setMaximum(13);
         Lift3Bar.setMinimum(-2);
         Lift3Bar.setOrientation(1);
         Lift3Bar.setToolTipText("");
@@ -220,28 +220,28 @@ public class LiftInterface extends javax.swing.JFrame {
             }
         });
 
-        Lift1Bar.setMaximum(12);
+        Lift1Bar.setMaximum(13);
         Lift1Bar.setMinimum(-2);
         Lift1Bar.setOrientation(1);
         Lift1Bar.setValue(1);
         Lift1Bar.setString("1");
         Lift1Bar.setStringPainted(true);
 
-        Lift2Bar.setMaximum(12);
+        Lift2Bar.setMaximum(13);
         Lift2Bar.setMinimum(-2);
         Lift2Bar.setOrientation(1);
         Lift2Bar.setValue(1);
         Lift2Bar.setString("1");
         Lift2Bar.setStringPainted(true);
 
-        Lift5Bar.setMaximum(12);
+        Lift5Bar.setMaximum(13);
         Lift5Bar.setMinimum(-2);
         Lift5Bar.setOrientation(1);
         Lift5Bar.setValue(1);
         Lift5Bar.setString("1");
         Lift5Bar.setStringPainted(true);
 
-        Lift4Bar.setMaximum(12);
+        Lift4Bar.setMaximum(13);
         Lift4Bar.setMinimum(-2);
         Lift4Bar.setOrientation(1);
         Lift4Bar.setValue(1);
@@ -922,7 +922,7 @@ public class LiftInterface extends javax.swing.JFrame {
 
         //check all lifts
         for (int i = 0; i < queue.size(); i++) {
-            if (queue.get(i).getType() == 4) {
+            if (queue.get(i).getType() == 1) {
                 if (queue.get(i).getTiming() < time) {
                     gotManagementOrBlackOps = true;
                     break;
@@ -942,8 +942,8 @@ public class LiftInterface extends javax.swing.JFrame {
         allInLiftQueues.addAll(lc1.getLift4().personsToPickUp);
         allInLiftQueues.addAll(lc1.getLift5().personsToPickUp);
         for (int i = 0; i < allInLiftQueues.size(); i++) {
-            System.out.println("size of all in lift queues "+allInLiftQueues.size()+ " i is "+i );
-            if (allInLiftQueues.get(i).getType() == 4) {
+            //System.out.println("size of all in lift queues "+allInLiftQueues.size()+ " i is "+i );
+            if (allInLiftQueues.get(i).getType() == 1) {
                 gotManagementOrBlackOps = true;
             }
         }
@@ -959,7 +959,7 @@ public class LiftInterface extends javax.swing.JFrame {
                     }
                 }
             } else {
-                if (queue.get(i).getType() == 4 || queue.get(i).getType() == 3) {
+                if (queue.get(i).getType() == 1 || queue.get(i).getType() == 3) {
                     if (queue.get(i).getTiming() < time) {
                         if (lc1.pickUp(queue.get(i))) {
                             ProcessingStatus.setText(ProcessingStatus.getText() + "Black Ops Lockdown at " + queue.get(i).timing + " \r\n");
@@ -1005,21 +1005,27 @@ public class LiftInterface extends javax.swing.JFrame {
             ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 5 has a " + lc1.getLift5().getPersons().get(i).getTypeName() + " \r\n");
         }
         
-//        for (int i = 0; i < lc1.getLift1().personsToPickUp.size(); i++) {
-//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.getLift1().personsToPickUp.size() + " number of people waiting.\r\n");
-//        }
-//        for (int i = 0; i < lc1.getLift2().personsToPickUp.size(); i++) {
-//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 2 has " + lc1.getLift2().personsToPickUp.size() + " number of people waiting.\r\n");
-//        }
-//        for (int i = 0; i < lc1.getLift3().personsToPickUp.size(); i++) {
-//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 3 has " + lc1.getLift3().personsToPickUp.size() + " number of people waiting.\r\n");
-//        }
-//        for (int i = 0; i < lc1.getLift4().personsToPickUp.size(); i++) {
-//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 4 has " + lc1.getLift4().personsToPickUp.size() + " number of people waiting.\r\n");
-//        }
-//        for (int i = 0; i < lc1.getLift5().personsToPickUp.size(); i++) {
-//            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 5 has " + lc1.getLift5().personsToPickUp.size() + " number of people waiting.\r\n");
-//        }
+        ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.getLift1().personsToPickUp.size() + " number of people waiting.\r\n");
+        ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 2 has " + lc1.getLift2().personsToPickUp.size() + " number of people waiting.\r\n");
+        ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 3 has " + lc1.getLift3().personsToPickUp.size() + " number of people waiting.\r\n");
+        ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 4 has " + lc1.getLift4().personsToPickUp.size() + " number of people waiting.\r\n");
+        ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 5 has " + lc1.getLift5().personsToPickUp.size() + " number of people waiting.\r\n");
+        
+        if(lc1.getLift1().getPersons().get(0)!=null){
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.lift1.getPersons().get(0).getTypeName()+" " + lc1.lift1.getPersons().get(0).getArrivalFloor()+" "+ lc1.lift1.getPersons().get(0).getDestinationFloor()+ "\r\n");
+        }
+        if(lc1.getLift2().getPersons().get(0)!=null){
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.lift2.getPersons().get(0).getTypeName()+" " + lc1.lift2.getPersons().get(0).getArrivalFloor()+" "+ lc1.lift2.getPersons().get(0).getDestinationFloor()+ "\r\n");
+        }
+        if(lc1.getLift3().getPersons().get(0)!=null){
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.lift3.getPersons().get(0).getTypeName()+" " + lc1.lift3.getPersons().get(0).getArrivalFloor()+" "+ lc1.lift3.getPersons().get(0).getDestinationFloor()+ "\r\n");
+        }
+        if(lc1.getLift4().getPersons().get(0)!=null){
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.lift4.getPersons().get(0).getTypeName()+" " + lc1.lift4.getPersons().get(0).getArrivalFloor()+" "+ lc1.lift4.getPersons().get(0).getDestinationFloor()+ "\r\n");
+        }
+        if(lc1.getLift5().getPersons().get(0)!=null){
+            ProcessingStatus.setText(ProcessingStatus.getText() + time + " Lift 1 has " + lc1.lift5.getPersons().get(0).getTypeName()+" " + lc1.lift5.getPersons().get(0).getArrivalFloor()+" "+ lc1.lift5.getPersons().get(0).getDestinationFloor()+ "\r\n");
+        }
         
         ProcessingStatus.setText(ProcessingStatus.getText() + time + " Queue has " + queue.size() + " people left. \r\n");
 

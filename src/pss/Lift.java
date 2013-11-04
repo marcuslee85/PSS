@@ -100,11 +100,15 @@ public class Lift {
                 return floor;
             }
             if (!persons.isEmpty() || !personsToPickUp.isEmpty()){
+                removePerson(); //reached
+                pickUpPerson(); //move from queue to lift
                 if (direction.equalsIgnoreCase("up")) {
                     if (floor == 12) {
                         setDirectionNotMoving();
                     }else{
                         floor++;
+                        removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
                     }
                     if (floor == 0) {
                         floor = 1;
@@ -113,30 +117,34 @@ public class Lift {
                     pickUpPerson(); //move from queue to lift
                     return floor;
                 } else if (direction.equalsIgnoreCase("down")) {
+                    removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
                     if (floor == -2) {
                         setDirectionNotMoving();
                     }else{
                         floor--;
+                        removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
                     }
                     if (floor == 0) {
                         floor = -1;
                     }
-                    removePerson(); //reached
-                    pickUpPerson(); //move from queue to lift
                     return floor;
                 }
             }
         }
         if (direction.equalsIgnoreCase("notMoving")) {
+            removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
             if (!persons.isEmpty()) {
                 if (persons.get(0).getDestinationFloor() > floor) {
                     setDirectionUp();
-                    persons.clear();
-                }else if (persons.get(0).getDestinationFloor() < floor) {
+                }
+                if (persons.get(0).getDestinationFloor() < floor) {
                     setDirectionDown();
                 }
-            } 
-                if (!personsToPickUp.isEmpty() && direction.equalsIgnoreCase("notMoving")) {
+            } else {
+                if (!personsToPickUp.isEmpty()) {
                     if (personsToPickUp.get(0).getArrivalFloor() > floor) {
                         setDirectionUp();
                     }
@@ -144,8 +152,11 @@ public class Lift {
                         setDirectionDown();
                     }
                 }
-            
+            }
         }
+        removePerson(); //reached
+                    pickUpPerson(); //move from queue to lift
+        System.out.println("");
         return floor;
     }
 }
